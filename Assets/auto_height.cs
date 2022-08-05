@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class auto_height : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    RectTransform[] rs;
+    public float height;
+    private void Start()
     {
-        
+        setHeight();
     }
 
-    // Update is called once per frame
-    void Update()
+    void setHeight()
     {
-        
+        rs = GetComponentsInChildren<RectTransform>();
+        foreach (RectTransform r in rs)
+        {
+            if (r.transform.parent == transform)
+            {
+                height += r.sizeDelta.y;
+            }
+        }
+        GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, height);
     }
 }
