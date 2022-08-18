@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class questsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject popup;
+    public void add_quest()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        popup.SetActive(true);
     }
 }
